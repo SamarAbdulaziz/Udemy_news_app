@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:udemy_news_app/layout/cubit/cubit_cubit.dart';
 import 'package:udemy_news_app/layout/cubit/cubit_state.dart';
+import 'package:udemy_news_app/network/remote/dio_helper.dart';
 
 class NewsLayout extends StatelessWidget {
-  const NewsLayout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return BlocProvider(
-      create: (context) => NewsCubit(),
+      create: (context) => NewsCubit()..getBusiness()..getSports()..getScience(),
       child: BlocConsumer<NewsCubit, NewsState>(
         listener: (context, state) {
           // TODO: implement listener
@@ -23,7 +24,16 @@ class NewsLayout extends StatelessWidget {
               actions: [
                 IconButton(
                   onPressed: (){},
-                  icon: Icon(Icons.search,
+                  icon: Icon(
+                    Icons.search,
+                  ),
+                ),
+                IconButton(
+                  onPressed: (){
+
+                  },
+                  icon: Icon(
+                    Icons.brightness_4_outlined,
                   ),
                 ),
               ],
