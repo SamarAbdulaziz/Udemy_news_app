@@ -6,6 +6,7 @@ import 'package:udemy_news_app/modules/business/business_Screen.dart';
 import 'package:udemy_news_app/modules/science/science_Screen.dart';
 import 'package:udemy_news_app/modules/settings/settings_Screen.dart';
 import 'package:udemy_news_app/modules/sports/sports_screen.dart';
+import 'package:udemy_news_app/network/cache_helper/cache_helper.dart';
 import 'package:udemy_news_app/network/remote/dio_helper.dart';
 class NewsCubit extends Cubit<NewsState>{
   NewsCubit() : super(InitialNewsState());
@@ -125,8 +126,18 @@ class NewsCubit extends Cubit<NewsState>{
   }
 
 bool isDark=false;
-  void changeAppMode(){
-   isDark=!isDark;
+  void changeAppMode({
+  bool? fromShared,
+}){
+   if(fromShared!=null) {
+     isDark=fromShared;
+     emit(AppChangeModeState());
+   }
+   else{
+     isDark=!isDark;
+     CacheHelper.setBoolean(key: 'isDark', value: isDark);
+     emit(AppChangeModeState());
+   }
 
   }//it must be in AppCubit like he did in the video but i still don't understand
 
