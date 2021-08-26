@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:udemy_news_app/layout/cubit/cubit_cubit.dart';
 import 'package:udemy_news_app/layout/cubit/cubit_state.dart';
+import 'package:udemy_news_app/modules/search/Search_Screen.dart';
 import 'package:udemy_news_app/network/cache_helper/cache_helper.dart';
 import 'package:udemy_news_app/network/remote/dio_helper.dart';
+import 'package:udemy_news_app/shared/components/components.dart';
 
 class NewsLayout extends StatelessWidget {
 
@@ -22,7 +24,9 @@ class NewsLayout extends StatelessWidget {
             ),
             actions: [
               IconButton(
-                onPressed: (){},
+                onPressed: (){
+                  navigateTo(context,SearchScreen());
+                },
                 icon: Icon(
                   Icons.search,
                 ),
