@@ -2,10 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:udemy_news_app/layout/cubit/cubit_state.dart';
-import 'package:udemy_news_app/modules/business/business_Screen.dart';
-import 'package:udemy_news_app/modules/science/science_Screen.dart';
+import 'package:udemy_news_app/modules/news_app/business/business_Screen.dart';
+import 'package:udemy_news_app/modules/news_app/science/science_Screen.dart';
+import 'package:udemy_news_app/modules/news_app/sports/sports_screen.dart';
 import 'package:udemy_news_app/modules/settings/settings_Screen.dart';
-import 'package:udemy_news_app/modules/sports/sports_screen.dart';
 import 'package:udemy_news_app/network/cache_helper/cache_helper.dart';
 import 'package:udemy_news_app/network/remote/dio_helper.dart';
 class NewsCubit extends Cubit<NewsState>{
@@ -58,7 +58,7 @@ class NewsCubit extends Cubit<NewsState>{
             'apiKey':'c4d1a19beb064845942332421ccd3ae2',
           }
       ).then((value) {
-        print(value.data['articles'][0]['title']);
+       // print(value.data['articles'][0]['title']);
         business=value.data['articles'];
         emit(NewGetBusinessSuccessState());
       }).catchError((error){
@@ -85,7 +85,7 @@ class NewsCubit extends Cubit<NewsState>{
             'apiKey':'c4d1a19beb064845942332421ccd3ae2',
           }
       ).then((value) {
-        print(value.data['articles'][0]['title']);
+       // print(value.data['articles'][0]['title']);
         sports=value.data['articles'];
         emit(NewGetSportsSuccessState());
       }).catchError((error){
@@ -112,7 +112,7 @@ class NewsCubit extends Cubit<NewsState>{
             'apiKey':'c4d1a19beb064845942332421ccd3ae2',
           }
       ).then((value) {
-        print(value.data['articles'][0]['title']);
+        //print(value.data['articles'][0]['title']);
         science=value.data['articles'];
         emit(NewGetScienceSuccessState());
       }).catchError((error){
@@ -137,7 +137,7 @@ class NewsCubit extends Cubit<NewsState>{
           'apiKey':'c4d1a19beb064845942332421ccd3ae2',
         }
     ).then((value) {
-      print(value.data['articles'][0]['title']);
+      //print(value.data['articles'][0]['title']);
       search=value.data['articles'];
       emit(NewGetSearchSuccessState());
     }).catchError((error){

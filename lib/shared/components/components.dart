@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:udemy_news_app/modules/webView_Screen/web_View_screen.dart';
+import 'package:udemy_news_app/modules/news_app/webView_Screen/web_View_screen.dart';
 
 Widget buildArticleItem(articles,context)=>InkWell(
   onTap: (){
@@ -174,3 +174,7 @@ Widget defaultFormField({
 
 void navigateTo(context, widget)=> Navigator.push(context,
       MaterialPageRoute(builder: (context)=>widget));
+
+void navigateAndFinish(context, widget)=> Navigator.pushAndRemoveUntil(context,
+    MaterialPageRoute(builder: (context)=>widget),
+        (route) => false);
