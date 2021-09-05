@@ -35,12 +35,12 @@ bool isLast=false;
     return Scaffold(
       appBar: AppBar(
         actions: [
-          TextButton(onPressed: (){
-            navigateAndFinish(context,ShopAppLoginScreen());
-          }, child: Text(
-            'SkIP',
-          ),
-          ),
+          defaultTextButton(
+              function:(){
+                navigateAndFinish(context,ShopAppLoginScreen());
+                },
+              text: 'skip'),
+
         ],
       ),
       body: Padding(

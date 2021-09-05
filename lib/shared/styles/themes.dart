@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:udemy_news_app/shared/styles/colors.dart';
 
 
 
 ThemeData lightTheme=ThemeData(
-  primarySwatch: Colors.deepOrange,
+  primarySwatch: defaultColor,
   scaffoldBackgroundColor: Colors.white,
   floatingActionButtonTheme: FloatingActionButtonThemeData(
-    backgroundColor: Colors.deepOrange,
+//    backgroundColor: Colors.deepOrange,//it takes the color of the primary swatch
   ),
   appBarTheme: AppBarTheme(
       titleSpacing: 20.0,
