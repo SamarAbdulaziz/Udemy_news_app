@@ -11,23 +11,20 @@ class DioHelper {
        // baseUrl: 'https://newsapi.org/',
         baseUrl: 'https://student.valuxapps.com/api/',
         receiveDataWhenStatusError: true,
-        headers: {
-          'Content-Type':'application/json',
-          //'lang':'ar'
-        }
       ),
     );
   }
 
  static  Future<Response> getData({
     required String url,
-   required Map<String, dynamic>? query,
-   String lang='ar',
+    Map<String, dynamic>? query,
+   String lang='en',
    String? token,
   }) async {
    dio.options.headers={
+     'Content-Type':'application/json',
      'lang':lang,
-     'Authorizations':token,
+     'Authorizations':token??'',//this=> ??'' means if it's not exist make it null
 
    };
     return await dio.get(url, queryParameters: query);
@@ -37,10 +34,11 @@ class DioHelper {
    required String url,
    Map<String, dynamic>? query,
    required Map<String, dynamic> data,
-   String lang='ar',
+   String lang='en',
    String? token,
  }) async {
    dio.options.headers={
+     'Content-Type':'application/json',
      'lang':lang,
      'Authorizations':token,
    };
@@ -51,3 +49,5 @@ class DioHelper {
    );
  }
 }
+//Note that you don't have to make every thing is static you can work here like Omar in breaking bad series
+//it's easy i may forget but it still so easy

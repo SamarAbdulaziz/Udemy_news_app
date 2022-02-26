@@ -6,8 +6,8 @@ import 'package:udemy_news_app/modules/news_app/business/business_Screen.dart';
 import 'package:udemy_news_app/modules/news_app/science/science_Screen.dart';
 import 'package:udemy_news_app/modules/news_app/sports/sports_screen.dart';
 import 'package:udemy_news_app/modules/settings/settings_Screen.dart';
-import 'package:udemy_news_app/network/cache_helper/cache_helper.dart';
-import 'package:udemy_news_app/network/remote/dio_helper.dart';
+import 'package:udemy_news_app/shared/network/local/cache_helper/cache_helper.dart';
+import 'package:udemy_news_app/shared/network/remote/dio_helper.dart';
 class NewsCubit extends Cubit<NewsState>{
   NewsCubit() : super(InitialNewsState());
 
@@ -149,7 +149,7 @@ class NewsCubit extends Cubit<NewsState>{
   }
 
 
-bool isDark=false;
+bool isDark=true;//he made it false
   void changeAppMode({
   bool? fromShared,
 }){

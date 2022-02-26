@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:udemy_news_app/modules/news_app/webView_Screen/web_View_screen.dart';
 
 Widget buildArticleItem(articles, context) => InkWell(
@@ -98,15 +99,9 @@ Widget defaultFormField({
       keyboardType: type,
       obscureText: isPassword,
       enabled: isClickable,
-      onFieldSubmitted: (s) {
-        onSubmit!;
-      },
-      onChanged: (s) {
-        onChange!(s);
-      },
-      onTap: () {
-        onTap!();
-      },
+      onFieldSubmitted: (s) => onSubmit,
+      onChanged: (s) =>onChange,
+      onTap: ()=>onTap,
       validator: (s) {
         validate(s);
       },
@@ -178,4 +173,34 @@ Widget defaultButton({
       ),
     ),
   );
+}
+void showToast({
+  required String text,
+  required ToastStates state,
+})=> Fluttertoast.showToast(
+    msg:text,
+    toastLength: Toast.LENGTH_LONG,//short 1sec long 5sec for android
+    gravity: ToastGravity.BOTTOM,//position
+    timeInSecForIosWeb: 5,//time for ios and web
+    backgroundColor:chooseToastColor(state),
+    textColor: Colors.white,
+    fontSize: 16.0,
+);
+
+enum ToastStates{SUCCESS,ERROR,WARNING}
+
+Color chooseToastColor(ToastStates state){
+  Color color;
+  switch(state){
+    case ToastStates.SUCCESS:
+      color=Colors.green;
+      break;
+    case ToastStates.ERROR:
+       color=Colors.red;
+       break;
+    case ToastStates.WARNING:
+       color=Colors.amber;
+       break;
+  }
+  return color;
 }

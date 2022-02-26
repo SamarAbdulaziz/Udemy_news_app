@@ -14,12 +14,10 @@ ThemeData lightTheme=ThemeData(
       titleSpacing: 20.0,
       color: Colors.white,
       elevation: 0.0,
-      backwardsCompatibility: false,
-      //to control status bar settings.
+      backwardsCompatibility: false, //to control status bar settings.
       systemOverlayStyle: SystemUiOverlayStyle( //status bar settings
         statusBarColor: Colors.white,
         statusBarIconBrightness: Brightness.dark,
-
       ),
       titleTextStyle: TextStyle(
         color: Colors.black,
@@ -33,7 +31,7 @@ ThemeData lightTheme=ThemeData(
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     type: BottomNavigationBarType.fixed,
-    selectedItemColor: Colors.orange,
+    selectedItemColor: defaultColor,
     backgroundColor: Colors.white,
   ),
   textTheme: TextTheme(
@@ -77,7 +75,7 @@ ThemeData darkTheme=ThemeData(
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     backgroundColor: Color(0xff333739),
     type: BottomNavigationBarType.fixed,
-    selectedItemColor: Colors.orange,
+    selectedItemColor:defaultColor,
     unselectedItemColor: Colors.grey,
   ),
   textTheme: TextTheme(
